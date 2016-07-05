@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>设置session</title>
+<style type="text/css">
+input[type='text'] {
+	width: 240px;
+    height: 35px;
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid #cacaca;
+    padding: 8px;
+}
+input[type='text']:focus{
+	border-color:darkturquoise;
+}
+input[type='submit']{
+	width: 100px;
+    height: 35px;
+    background: #00BCD4;
+    border: none;
+    border-radius: 2px;
+    color: white;
+}
+
+</style>
+</head>
+<body>
+<h1 style="text-align:center;margin-top:6%">设置session值</h1>
+
+<div style="text-align:center;">
+	<form action="" method="post">
+		<input type="text" name="name" placeholder="输入您要设置的值" />
+		<input type="submit" value="设置"/>
+	</form>
+</div>
+
+<div style="text-align:center;">
+	<a href="/session/">返回session首页</a>
+	<a href="/session/get/">查看存储值</a>
+</div>
+
+</body>
+</html>
