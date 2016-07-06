@@ -7,12 +7,6 @@
 #        2.缓        存：cached sessions
 #        3.文件系统：file-based session
 #        4.cookie：cookie-based session
-#
-#    ①、将session存储在数据中：
-#        django的默认是存储在数据库中，实现方式实际上就是通过django中间件实现的。需要将“django.contrib.sessions”加入到INSTALLED_APPS变量中。然后运行python manage.py syncdb
-#
-#
-#
 #    @author: Alim
 #    @E-mail: talkyunyun@126.com
 #===============================================================================
@@ -21,13 +15,13 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
+# 导入自定义包
+from libs.func import alert
 
 # session 操作首页
 def index(request):
 	
     return render_to_response('index.html', {})
-
-
 
 
 #===============================================================================
@@ -41,6 +35,8 @@ def set(request):
     if request.method == 'POST':
     	name = request.POST['name']
      	request.session['name'] = name
+     	
+      	return alert('设置成功')
     
     return render_to_response('set.html', {})
 
