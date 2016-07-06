@@ -20,7 +20,6 @@ from libs.func import alert
 
 # session 操作首页
 def index(request):
-	
     return render_to_response('index.html', {})
 
 
@@ -31,20 +30,41 @@ def index(request):
 #===============================================================================
 # session 设置
 @csrf_exempt
-def set(request):
+def	set(request):
     if request.method == 'POST':
-    	name = request.POST['name']
-     	request.session['name'] = name
-     	
-      	return alert('设置成功')
-    
+        name = request.POST['name']
+        request.session['name'] = name
+        return alert('设置成功')
     return render_to_response('set.html', {})
-
 
 
 # session 获取
 def get(request):
+    if request.session.get('name', False):
+        name = request.session['name']
+        return HttpResponse('获取到session的name值为：' + name);
+    return HttpResponse('不存在该数据信息，删除失败')
+   
+   
+# 删除session
+def delVal(request):
+    if request.session.get('name', False):
+        del request.session['name']
+        return alert('删除成功')
     
-    name = request.session['name']
-    
-    return HttpResponse('获取到session的name值为：' + name);
+    return HttpResponse('删除失败')
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
