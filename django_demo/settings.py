@@ -61,7 +61,7 @@ ROOT_URLCONF = 'django_demo.urls'
 #  session 配置
 #===============================================================================
 SESSION_ENGINE    = 'django.contrib.sessions.backends.file'
-SESSION_FILE_PATH = 'G:\django_session_tmp'
+SESSION_FILE_PATH = 'C:\django_session_tmp'
 
 
 
