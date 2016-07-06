@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^session/$', session.index),
     url(r'^session/set/$', session.set),
     url(r'^session/get/$', session.get),
+    url(r'^session/del/$', session.delVal),
 ]

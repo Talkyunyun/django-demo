@@ -25,14 +25,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '0!*z7ffk)s&johctzc@27%q*m^^g+@ed!u(@bddcezon&(l*2y'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+
+#===============================================================================
+# 调试模型开关，开发阶段建议开启；部署阶段请关闭，关闭之后ALLOWED_HOSTS必须设置，不然无法访问
+#===============================================================================
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,7 +131,51 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/dev/howto/static-files/
+#===============================================================================
+# 静态文件所在目录，一般我们我们只要把静态文件放在APP中的static目录下，部署时用python manage.py collectstatic 就可以把静态文件收集到STATIC_ROOT目录，
+# 但有一些公共文件，这时候就可以设置STATICFILES_DIRS另外一个文件夹
+# 
+#===============================================================================
+STATIC_URL  = '/static/'
+ 
+STATIC_ROOT = '/django_demo/static/' # 总的static目录，可以使用命令自动收集static文件
 
-STATIC_URL = '/static/'
+
+# 存放各个APP的static目录及公共的static目录
+CTATICFILES_DIRS = (
+     
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
