@@ -87,13 +87,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'django_demo.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
+#===============================================================================
+# 数据库相关配置，以下为mysql配置
+# 默认使用sqlite3
+# 【sqlite3】
+#     'ENGINE': 'django.db.backends.sqlite3',
+#     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#===============================================================================
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE'  : 'django.db.backends.mysql',
+        'NAME'    : 'djangodb',
+        'USER'    : 'root',
+        'PASSWORD': 'root',
+        'HOST'    : '127.0.0.1',
+        'PORT'    : '3306',
     }
 }
 
@@ -131,20 +140,16 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+
 #===============================================================================
 # 静态文件所在目录，一般我们我们只要把静态文件放在APP中的static目录下，部署时用python manage.py collectstatic 就可以把静态文件收集到STATIC_ROOT目录，
 # 但有一些公共文件，这时候就可以设置STATICFILES_DIRS另外一个文件夹
-# 
 #===============================================================================
 STATIC_URL  = '/static/'
- 
-STATIC_ROOT = '/django_demo/static/' # 总的static目录，可以使用命令自动收集static文件
-
-
+STATIC_ROOT = '/django-demo/static/' # 总的static目录，可以使用命令自动收集static文件
 # 存放各个APP的static目录及公共的static目录
-CTATICFILES_DIRS = (
-     
-)
+CTATICFILES_DIRS = []
 
 
 
